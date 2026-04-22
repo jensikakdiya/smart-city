@@ -1,38 +1,54 @@
-# 🌆 Smart City Management Platform
+# 🌆 Smart City Management System
 
-A web-based platform demonstrating **smart infrastructure and public service management** concepts, integrating IoT ideas with real-time dashboards built with Java and web technologies.
+A console-based **Smart City Management System** built in **Java** that simulates three core city services — Transportation, Electricity Billing, and Hotel Booking — with fare/bill calculation and file-based record saving.
 
-![Java](https://img.shields.io/badge/Java-Web-orange?logo=java&logoColor=white)
-![IoT](https://img.shields.io/badge/IoT-Concepts-blue)
-![Web](https://img.shields.io/badge/Web-HTML%20%7C%20CSS%20%7C%20JS-yellow)
+![Java](https://img.shields.io/badge/Java-Console%20App-orange?logo=java&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+![Type](https://img.shields.io/badge/Type-Console%20Application-informational)
 
 ---
 
 ## 📌 Project Overview
 
-This project simulates a **Smart City Management System** — a platform that demonstrates how modern cities can integrate IoT sensors and digital services to manage infrastructure more efficiently.
-
-The system covers multiple city service modules, simulating real-time data collection and service request management across departments.
+This project simulates a smart city service management platform where citizens can access three key services through a menu-driven interface. Each module collects user input, performs calculations, displays results, and automatically saves records to a `.txt` file for future reference.
 
 ---
 
 ## ✨ Features
 
-- 🚦 **Traffic Management** — Monitor and simulate traffic flow
-- 💡 **Street Light Control** — Automated lighting management
-- 🗑️ **Waste Management** — Track bin fill levels and collection schedules
-- 🌿 **Environment Monitoring** — Simulate sensor data (air quality, temperature)
-- 📋 **Service Request Management** — Citizens can raise and track service requests
+### 🚌 1. City Transportation
+- Choose transport mode: **Bus**, **Metro**, or **Taxi**
+- Enter distance traveled (in km)
+- Automatically calculates fare based on mode:
+  - Bus: ₹0.5/km
+  - Metro: ₹1.0/km
+  - Taxi: ₹2.0/km
+- Saves fare receipt to a `.txt` file
+
+### ⚡ 2. Electricity Billing System
+- Enter units consumed
+- Calculates bill using a **slab-based pricing system**:
+  - Up to 300 units: ₹8/unit + ₹100 fixed charge
+  - 301–500 units: 20% surcharge on extra units
+  - 500+ units: 50% surcharge on extra units + 15% overall surcharge
+- Saves electricity bill to a `.txt` file
+
+### 🏨 3. Hotel Booking System
+- Enter customer name, check-in date, room type, guests, and duration
+- Calculates booking amount:
+  - Single room: ₹1,200/guest/night
+  - Double room: ₹1,000/guest/night
+- Saves booking confirmation to a `.txt` file
 
 ---
 
-## 🧠 Tech Stack
+## 🗂️ Project Structure
 
-| Component | Technology |
-|-----------|-----------|
-| Backend | Java |
-| Frontend | HTML, CSS, JavaScript |
-| Concepts | IoT Simulation, Dashboard Design |
+```
+smart-city/
+├── SmartCity.java         # Main source file (all modules)
+└── README.md
+```
 
 ---
 
@@ -40,34 +56,57 @@ The system covers multiple city service modules, simulating real-time data colle
 
 ### Prerequisites
 - Java JDK 8+
-- A web browser
+- Terminal / Command Prompt
 
-### Run the project
+### Compile & Run
+
 ```bash
-javac Main.java
-java Main
+javac SmartCity.java
+java SmartCity
 ```
-Then open the web interface in your browser.
+
+### Sample Menu
+
+```
+Select:
+1. City Transportation
+2. Electricity Billing
+3. Hotel Booking
+4. Exit
+Enter your choice:
+```
 
 ---
 
-## 💡 Key Concepts Demonstrated
+## 📄 Output Files
 
-- IoT sensor data simulation
-- Real-time dashboard design
-- Service request workflow
-- Multi-module system architecture
-- City infrastructure management
+Each module automatically generates a `.txt` file with the transaction details:
+
+| Module | File Generated |
+|--------|---------------|
+| Transportation | `1_bus.txt`, `2_metro.txt`, etc. |
+| Electricity | `Electricity Bill<units>.txt` |
+| Hotel Booking | `<name>_<date>_<roomtype>.txt` |
+
+---
+
+## 🧠 Concepts Used
+
+- Java OOP (static inner classes)
+- Menu-driven programming (`do-while` + `switch`)
+- File I/O (`BufferedReader`, `PrintWriter`)
+- Slab-based calculation logic
+- Exception handling (`IOException`)
 
 ---
 
 ## 🚀 Future Enhancements
 
-- [ ] Connect to real IoT sensor APIs
-- [ ] Add live map view of the city
-- [ ] Mobile app interface
-- [ ] Data analytics dashboard with Power BI integration
-- [ ] Alert system for critical infrastructure events
+- [ ] Add a graphical user interface (JavaFX or web-based)
+- [ ] Connect to a MySQL database instead of file storage
+- [ ] Add user login and authentication
+- [ ] Integrate real IoT sensor data for smart monitoring
+- [ ] Add data analytics dashboard
 
 ---
 
